@@ -1,17 +1,11 @@
 class Solution {
     public long solution(int price, int money, int count) {
-        int range = price * count;
-        int i = 0;
-        long sum = 0, answer = 0;
-        
-        while (i <= range) {
-            sum += i;
-            i += price;
+        long answer = money;
+
+        for (int i = 0; i <= count * price; i+= price) {
+            answer -= i;
         }
         
-        answer = sum - money;
-        if (answer < 0) answer = 0;
-
-        return answer;
+        return answer < 0 ? -answer : 0;
     }
 }
